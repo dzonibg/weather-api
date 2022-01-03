@@ -60,6 +60,11 @@ return [
             'level' => env('LOG_LEVEL', 'debug'),
         ],
 
+        'heartbeat' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/heartbeat.log'),
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

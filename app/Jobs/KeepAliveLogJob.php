@@ -32,6 +32,6 @@ class KeepAliveLogJob implements ShouldQueue
      */
     public function handle()
     {
-        Log::info(Carbon::now() . " - Heartbeat from job!");
+        Log::channel('heartbeat')->info( Carbon::now() . " - Heartbeat from job!");
     }
 }
