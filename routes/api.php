@@ -22,5 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('test', [FetchService::class, 'fetchWeatherInfo']);
 Route::get('heartbeat', function () {
     dispatch(new \App\Jobs\KeepAliveLogJob());
-    return json_encode("Keep alive!");
+    return "Keep alive!";
 });
