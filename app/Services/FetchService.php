@@ -34,8 +34,13 @@ class FetchService {
         for ($i = 0; $i < count($this->cities); $i++) {
             $data[$this->cities[$i]] = $this->temps[$i];
         }
-        dd($data);
+        return $data;
+    }
 
+    public function getBelgradeTemperature() {
+        $array = $this->fetchWeatherInfo();
+        $belgradeTemp = $array['Beograd Karaburma'];
+        dd($belgradeTemp);
     }
 
 }

@@ -65,6 +65,11 @@ return [
             'path' => storage_path('logs/heartbeat.log'),
         ],
 
+        'temperature-update' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/temperature-update.log'),
+        ],
+
         'daily' => [
             'driver' => 'daily',
             'path' => storage_path('logs/laravel.log'),

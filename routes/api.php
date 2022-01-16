@@ -24,3 +24,5 @@ Route::get('heartbeat', function () {
     dispatch(new \App\Jobs\KeepAliveLogJob());
     return "Keep alive!";
 });
+
+Route::get('belgrade-temp', [FetchService::class, 'getBelgradeTemperature']);
