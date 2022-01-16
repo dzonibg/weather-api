@@ -12,7 +12,7 @@ class WeatherDataRepository {
     public function insertWeatherData($serviceID, $cityID, $temperature) {
         $query = DB::table($this->table)->insert([
             'city_id' => $cityID,
-            'time' => Carbon::now(),
+            'time' => date('Y-m-d H:i:s'),
             'service_id' => $serviceID,
             'temperature' => $temperature
         ]);
