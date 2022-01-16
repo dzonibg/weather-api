@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Jobs\KeepAliveLogJob;
+use App\Jobs\LogBasicBelgradeData;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -18,6 +19,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->job(new KeepAliveLogJob)->everyMinute()->withoutOverlapping;
+        $schedule->job(new LogBasicBelgradeData)->everyFiveMinutes()->withoutOverlapping;
     }
 
     /**

@@ -2,6 +2,8 @@
 
 
 namespace App\Services;
+use App\Jobs\LogBasicBelgradeData;
+use App\Repositories\WeatherDataRepository;
 use DOMDocument;
 
 
@@ -40,7 +42,14 @@ class FetchService {
     public function getBelgradeTemperature() {
         $array = $this->fetchWeatherInfo();
         $belgradeTemp = $array['Beograd Karaburma'];
-        dd($belgradeTemp);
+        $repo = new WeatherDataRepository();
+        $repo->insertWeatherData(0, 1, $belgradeTemp);
+        return $belgradeTemp;
+    }
+
+    public function dispatchGetBasicBelgradeDataJob() { // not needed, job defined in Kernel
+        dispatch(new LogBasicBelgradeData());
+        return response()->json(['data' => 'Job started'], '201');
     }
 
 }
