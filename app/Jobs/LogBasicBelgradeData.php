@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class LogBasicBelgradeData implements ShouldQueue
 {
@@ -32,6 +33,8 @@ class LogBasicBelgradeData implements ShouldQueue
     public function handle()
     {
         $data = new FetchService();
-        $value = $data->getBelgradeTemperature();
+        $response = $data->getBelgradeTemperature();
+        Log::channel('temperature-update')->info("Logged Belgrade temp - current $response");
+
     }
 }
