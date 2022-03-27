@@ -25,7 +25,7 @@ class WeatherDataRepository {
         $data = DB::table('weather_data')
             ->orderBy('time', 'desc')
             ->limit(1)
-            ->get(['time', 'city_id', 'service_id', 'created_at', 'temperature']);
+            ->first(['time', 'city_id', 'service_id', 'created_at', 'temperature']);
         return $data;
     }
 
