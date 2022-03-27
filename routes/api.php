@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Services\FetchService;
+use App\Http\Controllers\WeatherDataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,5 @@ Route::get('heartbeat', function () {
 });
 
 Route::get('belgrade-temp', [FetchService::class, 'getBelgradeTemperature']);
+
+Route::get('current-temperature', [WeatherDataController::class, 'getCurrentCityStats']);
