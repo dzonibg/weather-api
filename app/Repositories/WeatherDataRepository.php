@@ -15,7 +15,7 @@ class WeatherDataRepository {
             'time' => date('Y-m-d H:i:s'),
             'service_id' => $serviceID,
             'temperature' => $temperature,
-            'created_at' => date('Y-m-d H:i:s')
+            'created_at' => Carbon::now()
         ]);
 
         return $query;
