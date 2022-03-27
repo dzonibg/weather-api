@@ -16,7 +16,6 @@ class WeatherDataRepository {
             'service_id' => $serviceID,
             'temperature' => $temperature,
             'created_at' => date('Y-m-d H:i:s')
-
         ]);
 
         return $query;
