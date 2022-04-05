@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 
@@ -14,7 +15,12 @@ class ViewLoggerRepository
         $method = Request::method();
         $parameters = Request::all();
         $ip = Request::ip();
-        dd($endpoint, $ip, $method, $parameters);
+        DB::table('view_logs')->insert([
+            'ip' => $ip,
+            'url' => $endpoint,
+            'method' => $method,
+            'parameters' => json_encode($parameters)
+        ]);
     }
 
 }
