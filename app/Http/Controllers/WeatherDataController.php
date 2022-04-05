@@ -13,8 +13,6 @@ class WeatherDataController extends Controller
         $request = request()->all();
         $city_id = $request['city_id'];
         $data = $service->showCurrentDataByCity($city_id);
-        $repo = new ViewLoggerRepository();
-        $repo->logPageView();
         return response()->json(['data' => $data]);
     }
 }
