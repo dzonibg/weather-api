@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Request;
 class ViewLoggerRepository
 {
 
+    public function __construct()
+    {
+
+    }
+
     public function logPageView()
     {
         $endpoint = Request::url();

@@ -8,16 +8,18 @@ use App\Repositories\ViewLoggerRepository;
 class ShowDataService {
 
     public WeatherDataRepository $repository;
+    public ViewLoggerRepository $loggerRepository;
 
-    public function __construct() {
-        $this->repository = new WeatherDataRepository;
+    public function __construct()
+    {
+        $this->repository = new WeatherDataRepository();
+        $this->loggerRepository = new ViewLoggerRepository();
     }
 
-    public function showCurrentDataByCity($city_id)
+    public function showCurrentDataByCity(int $city_id)
     {
         $data = $this->repository->getCurrentDataByCityId($city_id);
-        $repo = new ViewLoggerRepository();
-        $repo->logPageView();
+        $this->loggerRepository->logPageView();
         return $data;
     }
 
