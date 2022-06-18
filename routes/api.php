@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Services\FetchService;
@@ -27,5 +28,8 @@ Route::get('heartbeat', function () {
 });
 
 Route::get('belgrade-temp', [FetchService::class, 'getBelgradeTemperature']);
-
 Route::get('current-temperature', [WeatherDataController::class, 'getCurrentCityStats']);
+
+Route::group(['prefix' => 'cities'], function () {
+    Route::get('index', [CityController::class, 'index']);
+});
