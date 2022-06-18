@@ -23,7 +23,7 @@ class CityController extends Controller
 
             $response = $cityRepository->create($data);
 
-            return response()->json(['data' => $data], 201);
+            return response()->json(['data' => $response], 201);
 
         } catch (\RuntimeException $exception) {
             return response()->json(['data' => $exception->getMessage()]);
