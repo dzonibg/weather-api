@@ -32,4 +32,6 @@ Route::get('current-temperature', [WeatherDataController::class, 'getCurrentCity
 
 Route::group(['prefix' => 'cities'], function () {
     Route::get('index', [CityController::class, 'index']);
+    Route::post('create', [CityController::class, 'create']);
+    Route::get('show', [CityController::class, 'show']);
 });

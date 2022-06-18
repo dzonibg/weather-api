@@ -29,4 +29,10 @@ class CityController extends Controller
             return response()->json(['data' => $exception->getMessage()]);
         }
     }
+
+    public function show(CityRepository $cityRepository) {
+        $request = \request()->all();
+        $data = $cityRepository->show($request['city_id']);
+        return response()->json(['data' => $data], 200);
+    }
 }

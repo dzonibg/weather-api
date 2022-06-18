@@ -25,8 +25,8 @@ class CityRepository {
     public function create($data) {
         return DB::table('cities')
             ->insert([
-                'name',
-                'country_id',
+                'name' => $data['name'],
+                'country_id' => $data['country_id'],
                 'created_at' => Carbon::now()
             ]);
     }
@@ -34,7 +34,7 @@ class CityRepository {
     public function show($cityID) {
         return DB::table('cities')
             ->select()
-            ->where('city_id', $cityID)
+            ->where('id', $cityID)
             ->get();
     }
 }
