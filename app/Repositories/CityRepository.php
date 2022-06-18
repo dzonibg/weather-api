@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class CityRepository {
 
     private string $table = "cities";
-    private $model = null;
+    private $model;
 
     public function __construct() {
         $this->model = new City();
