@@ -29,6 +29,7 @@ Route::get('heartbeat', function () {
 
 Route::get('belgrade-temp', [FetchService::class, 'getBelgradeTemperature']);
 Route::get('current-temperature', [WeatherDataController::class, 'getCurrentCityStats']);
+Route::get('hourly-average', [WeatherDataController::class, 'hourlyAveragesLastDay']);
 
 Route::group(['prefix' => 'cities'], function () {
     Route::get('index', [CityController::class, 'index']);

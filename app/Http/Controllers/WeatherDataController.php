@@ -15,4 +15,10 @@ class WeatherDataController extends Controller
         $data = $service->showCurrentDataByCity($city_id);
         return response()->json(['data' => $data]);
     }
+
+    public function hourlyAveragesLastDay(ShowDataService $service) {
+        $request = request()->all();
+        $city_id = $request['city_id'];
+        return $service->getLastDayAveragesPerHour($city_id);
+    }
 }

@@ -23,4 +23,9 @@ class ShowDataService {
         return $data;
     }
 
+    public function getLastDayAveragesPerHour(int $city_id) {
+        $data = $this->repository->getLastDayAveragePerHour($city_id);
+        return $data;
+    }
+
 }

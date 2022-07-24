@@ -16,14 +16,14 @@ class CityRepository {
     }
 
     public function index() {
-        return DB::table('cities')
+        return DB::table($this->table)
             ->select()
             ->orderBy('id', 'asc')
             ->get();
     }
 
     public function create($data) {
-        return DB::table('cities')
+        return DB::table($this->table)
             ->insert([
                 'name' => $data['name'],
                 'country_id' => $data['country_id'],
@@ -32,7 +32,7 @@ class CityRepository {
     }
 
     public function show($cityID) {
-        return DB::table('cities')
+        return DB::table($this->table)
             ->select()
             ->where('id', $cityID)
             ->get();
