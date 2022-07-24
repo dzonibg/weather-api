@@ -54,7 +54,7 @@ class WeatherDataRepository {
         group by date_trunc
         ";
 
-        return DB::table($this->table)->selectRaw($query);
+        return DB::select(DB::raw($query));
     }
 
 }
