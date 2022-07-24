@@ -47,7 +47,7 @@ class WeatherDataRepository {
         with temperature_data as
                          (select city_id, temperature, date_trunc('hour', created_at), row_number() over (PARTITION BY date_trunc('hour', created_at)) rn
                           from weather_data
-                          where created_at > now() - interval '1 DAY'
+                          where created_at >= now() - interval '1 DAY'
                           group by city_id, temperature, date_trunc('hour', created_at)
                           order by date_trunc('hour', created_at) asc)
         select round(avg(temperature)::numeric, 1), date_trunc::time from temperature_data
